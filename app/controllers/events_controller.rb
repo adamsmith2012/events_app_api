@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   # GET /events
   def index
-    @events = Event.all
+    @events = Event.where(sport_id: params[:sport_id])
 
     render json: @events
   end
@@ -16,9 +16,10 @@ class EventsController < ApplicationController
   # POST /events
   def create
     @event = Event.new(event_params)
+    @event.sport_id = params[:sport_id]
 
     if @event.save
-      render json: @event, status: :created, location: @event
+      render json: @event, status: :created
     else
       render json: @event.errors, status: :unprocessable_entity
     end

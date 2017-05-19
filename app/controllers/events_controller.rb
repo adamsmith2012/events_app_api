@@ -1,11 +1,16 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :update, :destroy]
 
-  # GET /events
+  # GET /sports/1/events
+  # GET /sports/all/events
   def index
-    @events = Event.where(sport_id: params[:sport_id])
-
-    render json: @events
+    if params[:sport_id] == "all"
+      @events = Event.all
+      render json: @events
+    else
+      @events = Event.where(sport_id: params[:sport_id])
+      render json: @events
+    end
   end
 
   # GET /events/1

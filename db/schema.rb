@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170519161412) do
+ActiveRecord::Schema.define(version: 20170519162907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(version: 20170519161412) do
   create_table "sports", force: :cascade do |t|
     t.string   "name"
     t.string   "img"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.string   "is_showing", default: "true"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.boolean  "is_showing", default: true
   end
 
   add_foreign_key "events", "sports"

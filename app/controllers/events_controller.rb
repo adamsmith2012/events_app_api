@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   def index
     if params[:sport_id] == "all"
       @events = Event.all
-      render json: @events
+      render json: @events.to_json(include: :sport)
     else
       @events = Event.where(sport_id: params[:sport_id])
       render json: @events

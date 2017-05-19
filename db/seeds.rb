@@ -18,6 +18,7 @@ Sport.create ([
 
 6.times do |i|
   10.times do
-    Event.create(name: Faker::Team.name, date: Faker::Date.forward(23), description: Faker::Lorem.paragraph, location: Faker::Address.street_address, cost: Faker::Number.decimal(2, 2), gender: "Coed", img: Faker::Placeholdit.image, sport_id: i+1)
+		gender = ['male', 'female', 'coed'].sample
+    Event.create(name: Faker::Team.name, date: Faker::Date.forward(23), description: Faker::Lorem.paragraph, location: Faker::Address.street_address, cost: Faker::Number.decimal(2, 2), gender: gender, img: Faker::Placeholdit.image, sport_id: i+1)
   end
 end

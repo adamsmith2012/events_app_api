@@ -13,10 +13,12 @@ Sport.create ([
 		{ name: 'Softball', img: 'https://image.flaticon.com/icons/svg/140/140411.svg'},
 		{ name: 'Baseball', img: 'https://image.flaticon.com/icons/svg/164/164991.svg'},
 		{ name: 'Kickball', img: 'https://image.flaticon.com/icons/svg/421/421170.svg'},
+		{ name: 'Tennis', img: 'https://image.flaticon.com/icons/svg/140/140400.svg'},
+		{ name: 'Bowling', img: 'https://image.flaticon.com/icons/svg/214/214272.svg'},
 ])
 
 
-6.times do |i|
+8.times do |i|
   10.times do
 		gender = ['male', 'female', 'coed'].sample
     Event.create(name: Faker::Team.name, date: Faker::Date.forward(23), description: Faker::Lorem.paragraph, location: Faker::Address.street_address, cost: Faker::Number.decimal(2, 2), gender: gender, img: Faker::Placeholdit.image, sport_id: i+1)
